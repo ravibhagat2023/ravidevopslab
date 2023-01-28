@@ -1,0 +1,110 @@
+{
+    "resource": {
+        "azurerm_network_security_group": [
+            {
+                "myExampleNSG": {
+                    "name": "myExampleNSG",
+                    "location": "${azurerm_resource_group.mg_rg1.location}",
+                    "resource_group_name": "${azurerm_resource_group.mg_rg1.name}",
+                    "tags": {
+                        "environment": "kyniac example"
+                    },
+                    "security_rule": [
+                        {
+                            "name": "test123",
+                            "priority": 100,
+                            "direction": "Inbound",
+                            "access": "Allow",
+                            "protocol": "Tcp",
+                            "source_port_range": "*",
+                            "destination_port_range": "*",
+                            "source_address_prefix": "*",
+                            "destination_address_prefix": "*",
+                            "description": null,
+                            "destination_application_security_group_ids": null,
+                            "source_address_prefixes": null,
+                            "source_application_security_group_ids": null,
+                            "source_port_ranges": null,
+                            "destination_address_prefixes": null,
+                            "destination_port_ranges": null
+                        }
+                    ]
+                }
+            },
+            {
+                "myExampleNSG2": {
+                    "name": "myExampleNSG2",
+                    "location": "${azurerm_resource_group.mg_rg2.location}",
+                    "resource_group_name": "mg_rg2"
+                }
+            }
+        ],
+        "azurerm_resource_group": [
+            {
+                "mg_rg1": {
+                    "name": "mg_rg1",
+                    "location": "Southeast Asia"
+                }
+            },
+            {
+                "mg_rg2": {
+                    "name": "mg_rg2",
+                    "location": "East US"
+                }
+            },
+            {
+                "mg_rg3": {
+                    "name": "mg_rg3",
+                    "location": "West US"
+                }
+            },
+            {
+                "mg_rg4": {
+                    "name": "mg_rg4",
+                    "location": "West US"
+                }
+            },
+            {
+                "mg_rg5": {
+                    "name": "mg_rg5",
+                    "location": "West US"
+                }
+            },
+            {
+                "mg_rg10": {
+                    "name": "mg_rg10",
+                    "location": "Southeast Asia"
+                }
+            }
+        ],
+        "azurerm_virtual_network": [
+            {
+                "mg_vnet": {
+                    "name": "mg_vnet",
+                    "location": "${azurerm_resource_group.mg_rg1.location}",
+                    "tags": {
+                        "environment": "test"
+                    },
+                    "resource_group_name": "${azurerm_resource_group.mg_rg1.name}",
+                    "address_space": [
+                        "10.0.0.0/16"
+                    ],
+                    "subnet": [
+                        {
+                            "name": "subnet1",
+                            "address_prefix": "10.0.1.0/24",
+                            "id": null,
+                            "security_group": null
+                        },
+                        {
+                            "name": "subnet2",
+                            "address_prefix": "10.0.2.0/24",
+                            "id": null,
+                            "security_group": null
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
